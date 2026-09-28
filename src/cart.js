@@ -1,11 +1,11 @@
 // Implement cartTotal here. See README.md and BRIEF.md for the specification.
 export function cartTotal(items, options) {
-  if (!items || items.length === 0) {
+  if (items.length === 0) {
     return 0;
   }
 
   for (const item of items) {
-    if (typeof item.price !== 'number' || item.price < 0) {
+    if (item.price < 0) {
       throw new RangeError('Price must not be negative');
     }
     if (!Number.isInteger(item.qty) || item.qty <= 0) {
